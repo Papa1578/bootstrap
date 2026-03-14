@@ -1,8 +1,18 @@
 {
-  "version": 148,
+  "version": 149,
   "date": "2026-03-14",
-  "created_at": "2026-03-14T15:18:47Z",
+  "created_at": "2026-03-14T15:18:49Z",
   "servers": [
+    {
+      "name": "dev-1",
+      "host": "212.118.41.227",
+      "port": 443,
+      "country": "Нидерланды",
+      "ssh_port": 22,
+      "reality_public_key": "babd5198b68a0341c40122233a453bc678823da836c84fd6045084dcab262240",
+      "reality_short_id": "071bb24d75b39472",
+      "reality_sni": "www.microsoft.com"
+    },
     {
       "name": "vds-1",
       "host": "95.217.146.251",
