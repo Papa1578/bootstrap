@@ -1,7 +1,7 @@
 {
-  "version": 141,
+  "version": 142,
   "date": "2026-03-14",
-  "created_at": "2026-03-14T11:42:06Z",
+  "created_at": "2026-03-14T13:59:53Z",
   "servers": [
     {
       "name": "dev-1",
@@ -32,16 +32,6 @@
       "reality_public_key": "413baee1eb33bc7b74987ca42f75d00ad7bb8d159150a0bd2ac33d91951d7f72",
       "reality_short_id": "2e6b7e9769a25f7e",
       "reality_sni": "www.microsoft.com"
-    },
-    {
-      "name": "vds-1",
-      "host": "95.217.146.251",
-      "port": 443,
-      "country": "Финляндия",
-      "ssh_port": 22,
-      "reality_public_key": "908844f20c4c4273369f1d761f4050cdfe651240b3b9c187ab83921e80118257",
-      "reality_short_id": "3a2c9cf2812c7491",
-      "reality_sni": "dl.google.com"
     }
   ]
 }
