@@ -1,38 +1,8 @@
 {
-  "version": 145,
+  "version": 146,
   "date": "2026-03-14",
-  "created_at": "2026-03-14T14:01:24Z",
+  "created_at": "2026-03-14T14:18:18Z",
   "servers": [
-    {
-      "name": "dev-1",
-      "host": "212.118.41.227",
-      "port": 443,
-      "country": "Нидерланды",
-      "ssh_port": 22,
-      "reality_public_key": "babd5198b68a0341c40122233a453bc678823da836c84fd6045084dcab262240",
-      "reality_short_id": "071bb24d75b39472",
-      "reality_sni": "www.microsoft.com"
-    },
-    {
-      "name": "intel-1",
-      "host": "192.168.88.23",
-      "port": 443,
-      "country": "Россия",
-      "ssh_port": 22,
-      "reality_public_key": "413baee1eb33bc7b74987ca42f75d00ad7bb8d159150a0bd2ac33d91951d7f72",
-      "reality_short_id": "2e6b7e9769a25f7e",
-      "reality_sni": "www.microsoft.com"
-    },
-    {
-      "name": "rus-test-1",
-      "host": "185.70.105.118",
-      "port": 443,
-      "country": "Россия",
-      "ssh_port": 22,
-      "reality_public_key": "413baee1eb33bc7b74987ca42f75d00ad7bb8d159150a0bd2ac33d91951d7f72",
-      "reality_short_id": "2e6b7e9769a25f7e",
-      "reality_sni": "www.microsoft.com"
-    },
     {
       "name": "vds-1",
       "host": "95.217.146.251",
