@@ -1,7 +1,7 @@
 {
-  "version": 139,
+  "version": 140,
   "date": "2026-03-14",
-  "created_at": "2026-03-14T11:30:13Z",
+  "created_at": "2026-03-14T11:42:03Z",
   "servers": [
     {
       "name": "dev-1",
@@ -11,16 +11,6 @@
       "ssh_port": 22,
       "reality_public_key": "babd5198b68a0341c40122233a453bc678823da836c84fd6045084dcab262240",
       "reality_short_id": "071bb24d75b39472",
-      "reality_sni": "www.microsoft.com"
-    },
-    {
-      "name": "intel-1",
-      "host": "192.168.88.23",
-      "port": 443,
-      "country": "Россия",
-      "ssh_port": 22,
-      "reality_public_key": "413baee1eb33bc7b74987ca42f75d00ad7bb8d159150a0bd2ac33d91951d7f72",
-      "reality_short_id": "2e6b7e9769a25f7e",
       "reality_sni": "www.microsoft.com"
     },
     {
