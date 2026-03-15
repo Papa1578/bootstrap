@@ -1,7 +1,7 @@
 {
-  "version": 176,
+  "version": 177,
   "date": "2026-03-15",
-  "created_at": "2026-03-15T06:16:40Z",
+  "created_at": "2026-03-15T09:22:28Z",
   "servers": [
     {
       "name": "dev-1",
@@ -32,6 +32,16 @@
       "reality_public_key": "908844f20c4c4273369f1d761f4050cdfe651240b3b9c187ab83921e80118257",
       "reality_short_id": "3a2c9cf2812c7491",
       "reality_sni": "dl.google.com"
+    },
+    {
+      "name": "vds-mikro-1",
+      "host": "5.34.176.78",
+      "port": 443,
+      "country": "Singapore",
+      "ssh_port": 22,
+      "reality_public_key": "61b3080a51dee1e9b032cfc481372ff69e0ec879d13b6dc31efb51c7237bc90f",
+      "reality_short_id": "bc054eb5c09c17ff",
+      "reality_sni": "www.microsoft.com"
     }
   ]
 }
