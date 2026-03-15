@@ -1,7 +1,7 @@
 {
-  "version": 182,
+  "version": 183,
   "date": "2026-03-15",
-  "created_at": "2026-03-15T16:18:08Z",
+  "created_at": "2026-03-15T16:18:10Z",
   "servers": [
     {
       "name": "dev-1",
@@ -22,6 +22,16 @@
       "reality_public_key": "f58890cde4e949a16f458bcfd83d89c29edafa6836b4ebbf28bb013693090721",
       "reality_short_id": "c2fab731dfc7b23d",
       "reality_sni": "www.microsoft.com"
+    },
+    {
+      "name": "vds-1",
+      "host": "95.217.146.251",
+      "port": 443,
+      "country": "Финляндия",
+      "ssh_port": 22,
+      "reality_public_key": "908844f20c4c4273369f1d761f4050cdfe651240b3b9c187ab83921e80118257",
+      "reality_short_id": "3a2c9cf2812c7491",
+      "reality_sni": "dl.google.com"
     }
   ]
 }
