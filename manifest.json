@@ -1,37 +1,86 @@
 {
-  "version": 185,
-  "date": "2026-03-15",
-  "created_at": "2026-03-15T16:25:02Z",
+  "version": 1,
+  "config_version": 1,
+  "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
   "servers": [
-    {
-      "name": "dev-1",
-      "host": "212.118.41.227",
-      "port": 443,
-      "country": "Нидерланды",
-      "ssh_port": 22,
-      "reality_public_key": "babd5198b68a0341c40122233a453bc678823da836c84fd6045084dcab262240",
-      "reality_short_id": "071bb24d75b39472",
-      "reality_sni": "www.microsoft.com"
-    },
     {
       "name": "hostkey-1",
       "host": "82.38.71.43",
       "port": 443,
-      "country": "Нидерланды",
-      "ssh_port": 22,
-      "reality_public_key": "f58890cde4e949a16f458bcfd83d89c29edafa6836b4ebbf28bb013693090721",
-      "reality_short_id": "c2fab731dfc7b23d",
-      "reality_sni": "www.microsoft.com"
-    },
-    {
-      "name": "vds-1",
-      "host": "95.217.146.251",
-      "port": 443,
-      "country": "Финляндия",
-      "ssh_port": 22,
-      "reality_public_key": "908844f20c4c4273369f1d761f4050cdfe651240b3b9c187ab83921e80118257",
-      "reality_short_id": "3a2c9cf2812c7491",
-      "reality_sni": "dl.google.com"
+      "reality_public_key": "z-GZ0lweFGGZn2QOp2LOke3hIUFcTbpuu8KtsYlZnEM",
+      "reality_short_id": "81356cc9",
+      "reality_sni": "www.google.com"
     }
-  ]
+  ],
+  "client_config": {
+    "log": {
+      "loglevel": "info"
+    },
+    "inbounds": [
+      {
+        "tag": "socks-in",
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        }
+      },
+      {
+        "tag": "http-in",
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {}
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "vless-reality-out",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "{{SERVER_HOST}}",
+              "port": "{{SERVER_PORT}}",
+              "users": [
+                {
+                  "id": "{{UUID}}",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "show": false,
+            "fingerprint": "chrome",
+            "serverName": "{{REALITY_SNI}}",
+            "publicKey": "{{REALITY_PUBLIC_KEY}}",
+            "shortId": "{{REALITY_SHORT_ID}}"
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {}
+      }
+    ],
+    "routing": {
+      "rules": [
+        {
+          "type": "field",
+          "outboundTag": "direct",
+          "domain": [
+            "localhost"
+          ]
+        }
+      ]
+    }
+  }
 }
