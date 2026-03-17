@@ -1,5 +1,5 @@
 {
-  "version": 200,
+  "version": 201,
   "date": "2026-03-17",
   "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
   "servers": [
@@ -14,20 +14,142 @@
     }
   ],
   "client_config": {
-    "log": {"loglevel": "warning"},
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "tcp://1.1.1.1",
+          "queryStrategy": "UseIPv4"
+        },
+        {
+          "address": "tcp://8.8.8.8",
+          "queryStrategy": "UseIPv4"
+        }
+      ],
+      "disableFallback": true,
+      "queryStrategy": "UseIPv4",
+      "tag": "dns-query"
+    },
     "inbounds": [
-      {"tag": "socks-in", "listen": "127.0.0.1", "port": 10808, "protocol": "socks", "settings": {"udp": true}},
-      {"tag": "http-in", "listen": "127.0.0.1", "port": 10809, "protocol": "http", "settings": {}}
+      {
+        "tag": "tun-in",
+        "protocol": "tun",
+        "settings": {
+          "name": "NovaVPN",
+          "mtu": 1400,
+          "userLevel": 0
+        },
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "routeOnly": true
+        }
+      },
+      {
+        "tag": "socks-in",
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        }
+      },
+      {
+        "tag": "http-in",
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {}
+      }
     ],
     "outbounds": [
       {
-        "tag": "vless-reality-out", "protocol": "vless",
-        "settings": {"vnext": [{"address": "{{SERVER_HOST}}", "port": "{{SERVER_PORT}}", "users": [{"id": "{{UUID}}", "encryption": "none", "flow": "xtls-rprx-vision"}]}]},
-        "streamSettings": {"network": "tcp", "security": "reality", "realitySettings": {"show": false, "fingerprint": "chrome", "serverName": "{{REALITY_SNI}}", "publicKey": "{{REALITY_PUBLIC_KEY}}", "shortId": "{{REALITY_SHORT_ID}}"}}
+        "tag": "vless-reality-out",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "{{SERVER_HOST}}",
+              "port": "{{SERVER_PORT}}",
+              "users": [
+                {
+                  "id": "{{UUID}}",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "show": false,
+            "fingerprint": "chrome",
+            "serverName": "{{REALITY_SNI}}",
+            "publicKey": "{{REALITY_PUBLIC_KEY}}",
+            "shortId": "{{REALITY_SHORT_ID}}"
+          }
+        }
       },
-      {"tag": "direct", "protocol": "freedom", "settings": {}}
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "tag": "dns-out",
+        "protocol": "dns"
+      }
     ],
-    "routing": {"rules": [{"type": "field", "outboundTag": "direct", "domain": ["localhost"]}]}
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "tun-in"
+          ],
+          "port": "53",
+          "outboundTag": "dns-out"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "10.0.0.0/8",
+            "172.16.0.0/12",
+            "192.168.0.0/16",
+            "127.0.0.0/8"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "outboundTag": "direct",
+          "domain": [
+            "localhost"
+          ]
+        }
+      ]
+    }
   },
-  "config_version": 1
+  "client_network": {
+    "tun_name": "NovaVPN",
+    "tun_ip": "10.10.0.2",
+    "tun_gateway": "10.10.0.1",
+    "tun_mask": "255.255.255.0",
+    "tun_mtu": 1400,
+    "dns": [
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "config_version": 2
 }
