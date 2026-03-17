@@ -1,86 +1,37 @@
 {
-  "version": 1,
-  "config_version": 1,
-  "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
+  "version": 188,
+  "date": "2026-03-17",
+  "created_at": "2026-03-17T06:54:47Z",
   "servers": [
     {
-      "name": "hostkey-1",
-      "host": "82.38.71.43",
+      "name": "dev-1",
+      "host": "212.118.41.227",
       "port": 443,
-      "reality_public_key": "z-GZ0lweFGGZn2QOp2LOke3hIUFcTbpuu8KtsYlZnEM",
-      "reality_short_id": "81356cc9",
-      "reality_sni": "www.google.com"
-    }
-  ],
-  "client_config": {
-    "log": {
-      "loglevel": "info"
+      "country": "Нидерланды",
+      "ssh_port": 22,
+      "reality_public_key": "babd5198b68a0341c40122233a453bc678823da836c84fd6045084dcab262240",
+      "reality_short_id": "071bb24d75b39472",
+      "reality_sni": "www.microsoft.com"
     },
-    "inbounds": [
-      {
-        "tag": "socks-in",
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        }
-      },
-      {
-        "tag": "http-in",
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {}
-      }
-    ],
-    "outbounds": [
-      {
-        "tag": "vless-reality-out",
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "{{SERVER_HOST}}",
-              "port": "{{SERVER_PORT}}",
-              "users": [
-                {
-                  "id": "{{UUID}}",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "show": false,
-            "fingerprint": "chrome",
-            "serverName": "{{REALITY_SNI}}",
-            "publicKey": "{{REALITY_PUBLIC_KEY}}",
-            "shortId": "{{REALITY_SHORT_ID}}"
-          }
-        }
-      },
-      {
-        "tag": "direct",
-        "protocol": "freedom",
-        "settings": {}
-      }
-    ],
-    "routing": {
-      "rules": [
-        {
-          "type": "field",
-          "outboundTag": "direct",
-          "domain": [
-            "localhost"
-          ]
-        }
-      ]
+    {
+      "name": "vds-1",
+      "host": "95.217.146.251",
+      "port": 443,
+      "country": "Финляндия",
+      "ssh_port": 22,
+      "reality_public_key": "908844f20c4c4273369f1d761f4050cdfe651240b3b9c187ab83921e80118257",
+      "reality_short_id": "3a2c9cf2812c7491",
+      "reality_sni": "dl.google.com"
+    },
+    {
+      "name": "vds-mikro-1",
+      "host": "5.34.176.78",
+      "port": 443,
+      "country": "Singapore",
+      "ssh_port": 22,
+      "reality_public_key": "61b3080a51dee1e9b032cfc481372ff69e0ec879d13b6dc31efb51c7237bc90f",
+      "reality_short_id": "bc054eb5c09c17ff",
+      "reality_sni": "www.microsoft.com"
     }
-  }
+  ]
 }
