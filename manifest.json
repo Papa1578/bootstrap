@@ -1,5 +1,5 @@
 {
-  "version": 204,
+  "version": 205,
   "date": "2026-03-18",
   "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
   "servers": [
@@ -80,8 +80,7 @@
               "users": [
                 {
                   "id": "{{UUID}}",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "encryption": "none"
                 }
               ]
             }
@@ -154,7 +153,7 @@
       "8.8.8.8"
     ]
   },
-  "config_version": 5,
+  "config_version": 6,
   "transport_profile": "xhttp_packet_up",
   "fallback_transport_profile": "reality_direct"
 }
