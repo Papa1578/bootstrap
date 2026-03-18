@@ -1,5 +1,5 @@
 {
-  "version": 202,
+  "version": 203,
   "date": "2026-03-18",
   "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
   "servers": [
@@ -154,7 +154,7 @@
       "8.8.8.8"
     ]
   },
-  "config_version": 3,
+  "config_version": 4,
   "transport_profile": "xhttp_packet_up",
   "fallback_transport_profile": "reality_direct"
 }
