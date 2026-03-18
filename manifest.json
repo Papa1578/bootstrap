@@ -1,5 +1,5 @@
 {
-  "version": 203,
+  "version": 204,
   "date": "2026-03-18",
   "anonymous_uuid": "fa841384-1764-4678-ac4e-d29d4f472670",
   "servers": [
@@ -21,15 +21,15 @@
       "servers": [
         {
           "address": "tcp://1.1.1.1",
-          "queryStrategy": "UseIPv4"
+          "queryStrategy": "UseIP"
         },
         {
           "address": "tcp://8.8.8.8",
-          "queryStrategy": "UseIPv4"
+          "queryStrategy": "UseIP"
         }
       ],
       "disableFallback": true,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "UseIP",
       "tag": "dns-query"
     },
     "inbounds": [
@@ -154,7 +154,7 @@
       "8.8.8.8"
     ]
   },
-  "config_version": 4,
+  "config_version": 5,
   "transport_profile": "xhttp_packet_up",
   "fallback_transport_profile": "reality_direct"
 }
