@@ -127,6 +127,11 @@
       {
         "tag": "dns-out",
         "protocol": "dns"
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole",
+        "settings": {}
       }
     ],
     "routing": {
@@ -151,6 +156,24 @@
           "network": "udp",
           "outboundTag": "dns-out",
           "ruleTag": "dns-udp"
+        },
+        {
+          "type": "field",
+          "domain": ["domain:local"],
+          "outboundTag": "block",
+          "ruleTag": "block-mdns-local"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "10.0.0.0/8",
+            "172.16.0.0/12",
+            "192.168.0.0/16",
+            "127.0.0.0/8"
+          ],
+          "port": "8008-8009,8443",
+          "outboundTag": "block",
+          "ruleTag": "block-cast-ports"
         },
         {
           "type": "field",
